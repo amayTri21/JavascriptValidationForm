@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <title>The Form</title>
+    <style>
+
+    .c1{
+        background-color: dodgerblue;
+        background-size: cover;
+        position: relative;
+        top: -1%;
+        margin-top: -1%;
+        left: -1%;
+        right: 1%;
+        text-align: center; 
+        width: 102%;
+        padding: 8px;
+       
+    }
+       
+       
+
+    #c2{
+        color: black;
+        background-color: pink;
+        background-size: cover;
+        position: relative;
+        top: -1%;
+        margin-top: -1%;
+        left: -1%;
+        right: 1%;
+        text-align: left; 
+        width: 102%;
+        padding: 8px;
+        font-family: Verdana;
+        padding-left: 40px;
+    }
+
+    #c3{
+        color: white;
+        background-color: blueviolet;
+        border-radius: 4px;
+        padding: 7px;
+        font-family: Verdana;
+    }
+
+    #c4{
+        color: black;
+        background-color: orange;
+        border-radius: 4px;
+        padding: 7px;
+        font-family: Verdana;
+       
+
+    }
+
+    #c5{
+        position: relative;
+        top: -1%;
+        margin-top: -1%;
+        left: -1%;
+        right: 1%;
+        text-align: left; 
+        width: 102%;
+        background-color: lightblue;
+        padding-left: 40px;
+        padding-top: -10%;
+        background-position: cover;
+    }
+    
+    </style>
+    </head>
+
+    <header class="c1">
+ 
+    <h2>THE COMPULSORY FORM</h2>
+    
+  </header>
+
+
+    <body>
+
+        <div>
+            <form name="myForm" onsubmit="return validate()" id="c2">
+                <label> FIRST NAME <br>
+                <input type="text" id="fname" placeholder="Your Name"><br><br>
+                </label>
+                <label>SURNAME<br>
+                <input type="text" id="lname" placeholder="Your Surname"><br><br>
+                </label>
+                <label>MOBILE NUMBER<br>
+                <input type="text" id="number" minlength="10" maxlength="10" placeholder="Your Mobile Number"><br><br>
+                </label>
+                <label>EMAIL<br>
+                <input type="email" id="email" placeholder="Your Email"><br><br>
+                </label>
+                <label>CAPTCHA CODE<br>
+                <input type="number" id="ecaptcha" placeholder="Enter Captcha Code"><br><br>
+                </label>
+              
+                
+                <input type="submit" value="Submit" id="c3">
+                
+              </form> <br>
+              <button id="c4" onclick="document.getElementById('demo').innerHTML = getRndInteger(1000,9999)">Get Captcha</button><br>
+              <div><container><p id="demo"></p></container</div>
+
+        </div>
+        <div id="c5">
+      
+            </div>
+    </body>
+
+    <script>
+
+        function getRndInteger(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function validate(){  
+
+
+        var fname=document.getElementById("fname").value;  
+        var lname=document.getElementById("lname").value;  
+        var number=document.getElementById("number").value;  
+        var email=document.getElementById("email").value;  
+        var ecaptcha=document.getElementById("ecaptcha").value; 
+        var captcha= document.getElementById("demo").textContent;
+
+
+        var letters = /^[A-Za-z]+$/;  
+
+        var phoneno = /^[6-9]\d{0,10}$/;
+
+     
+        if(fname=='' || lname=='' || number=='' || email=='' || ecaptcha==''){  
+        alert("ALL FIELDS ARE COMPULSORY"); 
+        return false; 
+        }  
+
+        else if(!letters.test(fname) || !letters.test(lname) )  
+            {  
+             alert('Names should contain Letters only');  
+             return false; 
+            }  
+        
+        else if(!letters.test(fname) || !letters.test(lname) )  
+            {  
+             alert('Names should contain Letters only');  
+             return false; 
+            }  
+
+  
+        else if(!phoneno.test(number))  
+            {  
+            alert("Enter a number starting from 6 8 7 9");  
+      
+            }  
+
+        else if(captcha!==ecaptcha)  
+            {  
+             alert('Enter correct captcha');  
+             return false; 
+            }  
+
+
+
+            else{
+    
+         alert("registeration sucess");
+         return true;
+   
+            } 
+         }  
+        </script>
+</html>
